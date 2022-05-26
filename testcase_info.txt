@@ -1,0 +1,44 @@
+Ref:
+
+# Test Case Methods as Ref
+https://docs.python.org/3/library/unittest.html#test-cases
+
+
+
+Workflow information
+--------------------
+# To run a testcase, we need to write the following cmd
+    python -m unittest testFileName.py
+
+# If we want to run the testcase file as the conventional python cmd to run a file, 
+then we have to make the conditional checking at the bottom of the python testScript file.
+    if __name__ == '__main__':
+        unittest.main()
+If the aforementioned conditional check exist inside the testcase, then the following cmd will run the python testScript.
+    python testCaseFileName.py
+
+
+
+>>>>>> [ Simple testcase ] - Function based
+# To construct a test-case for a particular method, then it needs to be written "test_" as the prefix of the method name.
+i.e, in our testcase example, we have method names as "add", "sub", "mul", "div".
+    Thus, the test-methods requires to be constructed as "test_add", "test_sub", "test_mul", "test_div". These 4 methods are the actual testcases.
+    In the "test_add" method, we're using "assertEqual()" method to justify if the calculation-result is same to the actual value.
+        Inside the "assertEqual()" method, we can directly put the actual-func as the first param, the result on the other param.
+        We can add multiple checks by using the "assertEqual()" functions multiple times in a single test-case. It helps to build good testcases.
+
+[ Make testcases for exception handling ]
+# For doing division, we're raising the ValueError if the value is trying to divide by 0.
+We can test the exception using two ways:
+    1. To test the raising of the correct-error, we uses the "assertRaises(errorName, funcName, x, 0)".
+    2. Use the context-manager & in the code-block, call the function normally.
+
+
+
+>>>>>> [ Sightly difficult testcase ] - Class based
+Basically the same as the "function-based test cases".
+# For the purpose of constructing every testcase-methods, we are required to instantiate the class-object in every test-methods.
+    The other assessing will be done with the "assertEqual()" method.
+
+# For making the our code DRY, we'll create another function just for instantiating the "EMployee" class-object.
+
